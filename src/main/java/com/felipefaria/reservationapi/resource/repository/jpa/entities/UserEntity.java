@@ -1,6 +1,5 @@
 package com.felipefaria.reservationapi.resource.repository.jpa.entities;
 
-import com.felipefaria.reservationapi.domain.entities.UserDomain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -17,23 +16,23 @@ import lombok.*;
 
 @Entity
 @Table(name = "users")
-public class User {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank
-    @Size(max = 30)
+    @Size(max = 50)
     @Column(name = "first_name")
     private String firstName;
 
     @NotBlank
-    @Size(max = 30)
+    @Size(max = 50)
     @Column(name = "last_name")
     private String lastName;
 
-    public User(UserDomain user) {
+    public UserEntity(com.felipefaria.reservationapi.domain.entities.User user) {
         this.id = user.getId();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();

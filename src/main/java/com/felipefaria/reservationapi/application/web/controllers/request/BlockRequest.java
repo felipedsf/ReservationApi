@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class BlockRequest {
+public class BlockRequest implements DateRange {
     @NotNull
     private Long propertyId;
     @NotNull

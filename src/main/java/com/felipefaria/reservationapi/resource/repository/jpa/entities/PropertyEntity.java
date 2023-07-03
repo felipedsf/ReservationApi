@@ -1,7 +1,7 @@
 package com.felipefaria.reservationapi.resource.repository.jpa.entities;
 
-import com.felipefaria.reservationapi.domain.entities.PropertyDomain;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Builder
@@ -14,22 +14,24 @@ import lombok.*;
 
 @Entity
 @Table(name = "property")
-public class Property {
+public class PropertyEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     @Column(name = "name")
     private  String name;
 
+    @NotNull
     @ManyToOne
     @JoinColumn(name = "owner_id")
-    private User owner;
+    private UserEntity owner;
 
-    public Property(PropertyDomain propertyDomain) {
-        this.id = propertyDomain.getId();
-        this.name = propertyDomain.getName();
-        this.owner = new User(propertyDomain.getOwner());
+    public PropertyEntity(com.felipefaria.reservationapi.domain.entities.Property property) {
+        this.id = property.getId();
+        this.name = property.getName();
+        this.owner = new UserEntity(property.getOwner());
     }
 }

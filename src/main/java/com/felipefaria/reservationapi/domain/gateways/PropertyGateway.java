@@ -1,7 +1,7 @@
 package com.felipefaria.reservationapi.domain.gateways;
 
-import com.felipefaria.reservationapi.domain.entities.PropertyDomain;
+import com.felipefaria.reservationapi.domain.entities.Property;
 
 public interface PropertyGateway {
-    PropertyDomain getProperty(Long propertyId);
+    Property getProperty(Long propertyId);
 }

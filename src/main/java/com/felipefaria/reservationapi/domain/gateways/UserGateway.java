@@ -1,8 +1,7 @@
 package com.felipefaria.reservationapi.domain.gateways;
 
-import com.felipefaria.reservationapi.domain.entities.BookingDomain;
-import com.felipefaria.reservationapi.domain.entities.UserDomain;
+import com.felipefaria.reservationapi.domain.entities.User;
 
 public interface UserGateway {
-    UserDomain getUserById(Long id);
+    User getUserById(Long userId);
 }

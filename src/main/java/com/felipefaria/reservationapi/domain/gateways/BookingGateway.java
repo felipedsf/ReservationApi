@@ -1,10 +1,16 @@
 package com.felipefaria.reservationapi.domain.gateways;
 
-import com.felipefaria.reservationapi.domain.entities.BookingDomain;
+import com.felipefaria.reservationapi.domain.entities.Booking;
+
+import java.time.LocalDate;
+import java.util.List;
 
 public interface BookingGateway {
-    BookingDomain getBooking(Long bookingId);
-    BookingDomain createBooking(BookingDomain bookingDomainRequest);
-    BookingDomain updateBooking(Long bookingId, BookingDomain bookingDomainUpdateRequest);
-    BookingDomain cancelBooking(Long bookingId);
+    Booking getBooking(Long bookingId);
+    Booking createBooking(Booking booking);
+    Booking updateBooking(Long bookingId, Booking booking);
+    List<Booking> listBookings(Long propertyId);
+    Boolean verifyBookings(Long propertyId, LocalDate startDate, LocalDate endDate);
+    Boolean verifyBookings(Long bookingId, Long propertyId, LocalDate startDate, LocalDate endDate);
+    Booking getBookingWithStatus(Long bookingId, String status);
 }

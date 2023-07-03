@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Data
-public class BookingRequest {
+public class BookingRequest implements DateRange {
     @NotNull
     private Long propertyId;
     @NotNull

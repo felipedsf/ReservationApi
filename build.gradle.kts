@@ -40,9 +40,6 @@ dependencies {
 	// doc
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
 
-	// observability
-	runtimeOnly("io.micrometer:micrometer-registry-prometheus")
-
 	// tests
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

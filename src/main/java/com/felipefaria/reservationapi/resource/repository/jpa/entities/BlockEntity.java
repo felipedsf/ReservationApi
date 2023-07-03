@@ -1,6 +1,5 @@
 package com.felipefaria.reservationapi.resource.repository.jpa.entities;
 
-import com.felipefaria.reservationapi.domain.entities.BlockDomain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -17,7 +16,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "block")
-public class Block {
+public class BlockEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +25,7 @@ public class Block {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "property_id")
-    private Property property;
+    private PropertyEntity property;
 
     @NotNull
     @Column(name = "start_date")
@@ -36,11 +35,11 @@ public class Block {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    public Block(BlockDomain blockDomain) {
-        this.id = blockDomain.getId();
-        this.property = new Property(blockDomain.getPropertyDomain());
-        this.startDate = blockDomain.getStartDate();
-        this.endDate = blockDomain.getEndDate();
+    public BlockEntity(com.felipefaria.reservationapi.domain.entities.Block block) {
+        this.id = block.getId();
+        this.property = new PropertyEntity(block.getProperty());
+        this.startDate = block.getStartDate();
+        this.endDate = block.getEndDate();
     }
 
 }

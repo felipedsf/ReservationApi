@@ -4,6 +4,7 @@ CREATE TABLE IF NOT EXISTS booking(
     property_id BIGINT NOT NULL,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
+    status varchar(50) NOT NULL,
     PRIMARY KEY (id)
 );
 

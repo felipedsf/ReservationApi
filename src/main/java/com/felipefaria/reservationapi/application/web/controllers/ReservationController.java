@@ -38,35 +38,40 @@ public class ReservationController {
         return ResponseEntity.ok(blockService.updateBlock(blockId, blockRequest));
     }
 
+
+    @GetMapping("/bookings/{bookingId}")
+    public ResponseEntity getBooking(@PathVariable Long bookingId) {
+        return ResponseEntity.ok(bookingService.getBooking(bookingId));
+    }
+
+    @PostMapping("/bookings")
+    public ResponseEntity createBooking(@Valid @RequestBody BookingRequest request) {
+        return ResponseEntity.ok(bookingService.createBooking(request));
+    }
+
+    @PutMapping("/bookings/{bookingId}")
+    public ResponseEntity updateBooking(@PathVariable Long bookingId, @Valid @RequestBody BookingUpdateRequest request) {
+        return ResponseEntity.ok(bookingService.updateBooking(bookingId, request));
+    }
+
+    @DeleteMapping("/bookings/{bookingId}")
+    public ResponseEntity cancelBooking(@PathVariable Long bookingId) {
+        return ResponseEntity.ok(bookingService.cancelBooking(bookingId));
+    }
+
+    @PatchMapping("/bookings/{bookingId}")
+    public ResponseEntity rebooking(@PathVariable Long bookingId) {
+        return ResponseEntity.ok(bookingService.rebooking(bookingId));
+    }
+
+
     @GetMapping("/blocks/property/{propertyId}")
     public ResponseEntity listBlocks(@PathVariable Long propertyId) {
         return ResponseEntity.ok(blockService.listBlocks(propertyId));
     }
 
-    // ****** Bookings ******
     @GetMapping("/bookings/property/{propertyId}")
     public ResponseEntity getBookings(@PathVariable Long propertyId) {
         return ResponseEntity.ok(bookingService.listBookings(propertyId));
     }
-
-    @GetMapping("/bookings/{bookingId}")
-    public ResponseEntity getBooking(@PathVariable Long bookingId) {
-        return ResponseEntity.ok().build();
-    }
-
-    @DeleteMapping("/bookings/{bookingId}")
-    public ResponseEntity cancelBooking(@PathVariable Long bookingId) {
-        return ResponseEntity.ok().build();
-    }
-
-    @PostMapping("/bookings")
-    public ResponseEntity createBooking(@Valid @RequestBody BookingRequest request) {
-        return ResponseEntity.ok().build();
-    }
-
-    @PutMapping("/bookings/{bookingId}")
-    public ResponseEntity updateBooking(@PathVariable Long bookingId, @Valid @RequestBody BookingUpdateRequest request) {
-        return ResponseEntity.ok().build();
-    }
-
 }

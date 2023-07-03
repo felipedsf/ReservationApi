@@ -1,3 +1,18 @@
-http://localhost:8081/swagger-ui/index.html
+# RESERVATION API
+---
+## TECH STACK
+- Java
+- Spring Boot
+- H2
+- Flyway
+- Junit
+- Mockito
 
-http://localhost:8081/db-console
+---
+- SERVER_PORT: 8081
+- API_DOC: http://localhost:8081/swagger-ui/index.html
+- DB_CONSOLE: http://localhost:8081/db-console
+  - DB_URL:
+  - DB_USER: sa
+  - DB_PASSWORD: 
+  
